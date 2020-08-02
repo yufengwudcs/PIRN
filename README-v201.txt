@@ -196,5 +196,5 @@ from the source code.
 CONTACT      
 **************************************************************************
 Please send bug reports and technical questions to Yufeng Wu at 
-<ywu@engr.uconn.edu>.
+<yufeng.wu@uconn.edu>.
 
