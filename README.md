@@ -4,10 +4,15 @@ Parsimonious construction of phylogenetic networks from gene trees
 Software accompaniment to
 1. Yufeng Wu, "Close lower and upper bounds for the minimum reticulate network of multiple phylogenetic trees", in Proceedings of ISMB 2010, Bioinformatics 2010 26(12):i140-i148, 2010.  
 2. Yufeng Wu, "An Algorithm for Constructing Parsimonious Hybridization Networks with Multiple Phylogenetic Trees", in Proceedings of RECOMB 2013. 
+3. Sajad Mirzaei and Yufeng Wu, " Fast Construction of Parsimonious Hybridization Networks for Multiple Phylogenetic Trees", IEEE/ACM Transaction on Computational Biology and Bioinformatics, 2016. This is the PIRNs paper.
+
 
 08/02/2020: Due to IT changes at UConn, PIRN is now moved to GitHub.
 
 2/19/2014: A related program called PIRNS is now published. It is related to PIRN but often works faster for larger number of trees.
+PIRNS is a program for reconstructing the most parsimonious phylogenetic networks that contain a set of given phylogenetic trees. Its goal is similar to the program PIRN. PIRNS is written in Java by Sajad Mirzaei. 
+PIRNS java executable: to run it, first download to your own machine. To run it, type: java -jar pirns.jar <input gene trees>. The gene tree file should contain only gene tree file in the Newick format. It is the same data format as PIRN. The output network is stored in a file called output.gml. It is in the GML format. See the PIRN's readme for advice on how to view it. 
+
 
 1/8/2013: v2.0.1: This is a new code release. The main new feature is the ability of constructing the exact most parsimonious hybridization network for multiple rooted binary trees. Note this works only for relatively small number of reticulations (specified by -r option). See the Readme file for more details.
 
