@@ -23,7 +23,7 @@ Note: Files can be downloaded using "Save Link/Target As..." After downloading t
 
 Current version: v. 2.0.1. I provide both executables on Linux and Mac. If you want to build from source code, please check out the distributed source code.
 
-#Build from source code
+# Build from source code
 First, download the source code and de-compress into a proper directory.
 PIRN uses integer linear programming (ILP) solvers. You have two options.
 
