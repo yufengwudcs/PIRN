@@ -22,3 +22,24 @@ PIRN is a program for reconstructing the most parsimonious phylogenetic networks
 Note: Files can be downloaded using "Save Link/Target As..." After downloading the softwares, you may need to change file access permissions (e.g. chmod u+x pirn). Source code is available upon request .
 
 Current version: v. 2.0.1. I provide both executables on Linux and Mac. If you want to build from source code, please check out the distributed source code.
+
+#Build from source code
+First, download the source code and de-compress into a proper directory.
+PIRN uses integer linear programming (ILP) solvers. You have two options.
+
+By default (if you just type "make"), PIRN will build with GNU GLPK.
+In this case, you need to get GLPK from here. I used version 4.34.
+So select v.4.34 and download the file. Now follow the installation guide of GLPK
+to build GLPK on your machine. After it is done (by typing ./configure and build I believe),
+look for the build GLPK callable library (for v.4.34, it is called libglpk.a, and is under
+glpk-4.34/src/.libs. Now copy this file (under src directory) along with the include directory
+into a directory under the soure code directory of PIRN. That is, suppose the PIRN's main
+code directory is pirn. Then, you need to put GLPK library (or create a symboikc link)
+pirn/glpk-4.34 (with libglpk.a under pirn/glpk-4.34/src,
+and header files under pirn/glpk-4.34/include). Look at the Makefile to see how GLPK is used.
+Then simply type make.
+
+If you have CPLEX, you can also compile with CPLEX. To compile with CPLEX,
+you will need to modify the path settings in the Makefile to point to the directory
+where CPLEX is installed in your machine. Check the Makefile to see where CPLEX
+is referenced (near the begining). Then, type "make CPLEX".
