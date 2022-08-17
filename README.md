@@ -9,6 +9,12 @@ Software accompaniment to
 
 08/02/2020: Due to IT changes at UConn, PIRN is now moved to GitHub.
 
+# PIRNs
+2/19/2014: A related program called PIRNs is now published. It is related to PIRN but often works faster for larger number of trees.
+PIRNs is a program for reconstructing the most parsimonious phylogenetic networks that contain a set of given phylogenetic trees. Its goal is similar to the program PIRN. PIRNs is written in Java by Sajad Mirzaei. 
+PIRNs java executable: to run it, first download pirns.jar (included in this repositary) to your own machine. To run it, type: java -jar pirns.jar <input gene trees>. The gene tree file should contain only gene tree file in the Newick format. It is the same data format as PIRN. Note: only use taxon names in the Newick format; for example: ((a,b),(c,d)); Don't include other information such as branch lengths. The output network is stored in a file called output.txt. This file is in the GML format (a graph representation format). See the PIRN's readme for advice on how to visualize it. Or you can easily draw the network based on the simple graph format (nodes and edges) yourself.
+
+
 1/8/2013: v2.0.1: This is a new code release. The main new feature is the ability of constructing the exact most parsimonious hybridization network for multiple rooted binary trees. Note this works only for relatively small number of reticulations (specified by -r option). See the Readme file for more details.
 
 PIRN is a program for reconstructing the most parsimonious phylogenetic networks that contain a set of given phylogenetic trees. One motivation is that the trees are the gene trees and the phylogenetic networks model what may have happen when there is horizontal gene transfer. An example of phylogenetic network produced by PIRN is shown above, which contains five input gene trees (see the Appendix of my ISMB paper for these five trees). The main functions of PIRN is computing a lower bound on the minimum reticulation needed and also reconstructing a network that is usually close to optimum.
@@ -17,11 +23,6 @@ PIRN is a program for reconstructing the most parsimonious phylogenetic networks
 Note: Files can be downloaded using "Save Link/Target As..." After downloading the softwares, you may need to change file access permissions (e.g. chmod u+x pirn). Source code is available upon request .
 
 Current version: v. 2.0.1. I provide both executables on Linux and Mac. If you want to build from source code, please check out the distributed source code.
-
-# PIRNs
-2/19/2014: A related program called PIRNs is now published. It is related to PIRN but often works faster for larger number of trees.
-PIRNs is a program for reconstructing the most parsimonious phylogenetic networks that contain a set of given phylogenetic trees. Its goal is similar to the program PIRN. PIRNs is written in Java by Sajad Mirzaei. 
-PIRNs java executable: to run it, first download to your own machine. To run it, type: java -jar pirns.jar <input gene trees>. The gene tree file should contain only gene tree file in the Newick format. It is the same data format as PIRN. The output network is stored in a file called output.gml. It is in the GML format. See the PIRN's readme for advice on how to view it. 
 
 # Build from source code
 First, download the source code and de-compress into a proper directory.
