@@ -14,6 +14,7 @@ Software accompaniment to
 PIRNs is a program for reconstructing the most parsimonious phylogenetic networks that contain a set of given phylogenetic trees. Its goal is similar to the program PIRN. PIRNs is written in Java by Sajad Mirzaei. My tests show that PIRNs often gives phylogenetic networks with close to the minimum number of reticulations.
 PIRNs java executable: to run it, first download pirns.jar (included in this repositary) to your own machine. To run it, type: java -jar pirns.jar <input gene trees>. The gene tree file should contain only gene tree file in the Newick format. It is the same data format as PIRN. Note: only use taxon names in the Newick format; for example: ((a,b),(c,d)); Don't include other information such as branch lengths. The output network is stored in a file called output.txt. This file is in the GML format (a graph representation format). See the PIRN's readme for advice on how to visualize it. Or you can easily draw the network based on the simple graph format (nodes and edges) yourself.
 
+10/19/2022: v2.1.0. The main feature added is enhancing lower bound computation on the minimum reticulation. PIRN can now compute two kinds of lower bounds: general bound (using the approach in Wu, ISMB 2010) and tree-child lower bound (which is only applicable to tree-child networks). The tree-child bound is more efficient to compute than the general bound.
 
 1/8/2013: v2.0.1: This is a new code release. The main new feature is the ability of constructing the exact most parsimonious hybridization network for multiple rooted binary trees. Note this works only for relatively small number of reticulations (specified by -r option). See the Readme file for more details.
 
@@ -22,23 +23,36 @@ PIRN is a program for reconstructing the most parsimonious phylogenetic networks
 
 Note: Files can be downloaded using "Save Link/Target As..." After downloading the softwares, you may need to change file access permissions (e.g. chmod u+x pirn). Source code is available upon request .
 
-Current version: v. 2.0.1. I provide both executables on Linux and Mac. If you want to build from source code, please check out the distributed source code.
+Current version: v. 2.1.0. Only source code is provided. You need to build PIRN from source code (see below).
 
 # Build from source code
 First, download the source code and de-compress into a proper directory.
 PIRN uses integer linear programming (ILP) solvers. You have two options.
 
 By default (if you just type "make"), PIRN will build with GNU GLPK.
-In this case, you need to get GLPK from here. I used version 4.34.
-So select v.4.34 and download the file. Now follow the installation guide of GLPK
-to build GLPK on your machine. After it is done (by typing ./configure and build I believe),
-look for the build GLPK callable library (for v.4.34, it is called libglpk.a, and is under
-glpk-4.34/src/.libs. Now copy this file (under src directory) along with the include directory
-into a directory under the soure code directory of PIRN. That is, suppose the PIRN's main
-code directory is pirn. Then, you need to put GLPK library (or create a symboikc link)
-pirn/glpk-4.34 (with libglpk.a under pirn/glpk-4.34/src,
-and header files under pirn/glpk-4.34/include). Look at the Makefile to see how GLPK is used.
-Then simply type make.
+For convenience, I included the source code of GLPK version 4.34. Here are the steps to build PIRN based on GLPK. 
+
+(i) Download the source file of PIRN (PIRN-v2.1.0-Oct192022.zip)
+
+(ii) Decompress the source file:  PIRN-v2.1.0-Oct192022.zip
+
+(iii) Go to the source folder:
+cd PIRN-v2.1.0-Oct192022
+
+(iv) Extract GLPK:
+tar -xf glpk-4.34.tar
+
+(v) Build GLPK first
+cd glpk-4.34
+make
+
+(vi) Go back to PIRN's folder:
+cd ../..
+make
+
+(vii) Verify prin can run:
+./pirn
+
 
 If you have CPLEX, you can also compile with CPLEX. To compile with CPLEX,
 you will need to modify the path settings in the Makefile to point to the directory
