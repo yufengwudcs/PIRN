@@ -6,6 +6,7 @@ Software accompaniment to
 2. Yufeng Wu, "An Algorithm for Constructing Parsimonious Hybridization Networks with Multiple Phylogenetic Trees", in Proceedings of RECOMB 2013. 
 3. Sajad Mirzaei and Yufeng Wu, " Fast Construction of Parsimonious Hybridization Networks for Multiple Phylogenetic Trees", IEEE/ACM Transaction on Computational Biology and Bioinformatics, 2016. This is the PIRNs paper.
 
+10/19/2022: v2.1.0. The main feature added is enhancing lower bound computation on the minimum reticulation. PIRN can now compute two kinds of lower bounds: general bound (using the approach in Wu, ISMB 2010) and tree-child lower bound (which is only applicable to tree-child networks). The tree-child bound is more efficient to compute than the general bound.
 
 08/02/2020: Due to IT changes at UConn, PIRN is now moved to GitHub.
 
@@ -13,8 +14,6 @@ Software accompaniment to
 2/19/2014: A related program called PIRNs is now published. It is related to PIRN but often works faster for larger number of trees.
 PIRNs is a program for reconstructing the most parsimonious phylogenetic networks that contain a set of given phylogenetic trees. Its goal is similar to the program PIRN. PIRNs is written in Java by Sajad Mirzaei. My tests show that PIRNs often gives phylogenetic networks with close to the minimum number of reticulations.
 PIRNs java executable: to run it, first download pirns.jar (included in this repositary) to your own machine. To run it, type: java -jar pirns.jar <input gene trees>. The gene tree file should contain only gene tree file in the Newick format. It is the same data format as PIRN. Note: only use taxon names in the Newick format; for example: ((a,b),(c,d)); Don't include other information such as branch lengths. The output network is stored in a file called output.txt. This file is in the GML format (a graph representation format). See the PIRN's readme for advice on how to visualize it. Or you can easily draw the network based on the simple graph format (nodes and edges) yourself.
-
-10/19/2022: v2.1.0. The main feature added is enhancing lower bound computation on the minimum reticulation. PIRN can now compute two kinds of lower bounds: general bound (using the approach in Wu, ISMB 2010) and tree-child lower bound (which is only applicable to tree-child networks). The tree-child bound is more efficient to compute than the general bound.
 
 1/8/2013: v2.0.1: This is a new code release. The main new feature is the ability of constructing the exact most parsimonious hybridization network for multiple rooted binary trees. Note this works only for relatively small number of reticulations (specified by -r option). See the Readme file for more details.
 
